@@ -14,7 +14,7 @@
             List<NameHealthDamage> nameHealthDamages = new List<NameHealthDamage>();
 
             List<string> codeText = Console.ReadLine()
-                .Split(", ", StringSplitOptions.RemoveEmptyEntries)
+                .Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 
             int health = 0;
@@ -72,6 +72,7 @@
             foreach (var NHD in nameHealthDamages
                 .OrderBy(x => x.Name))
             {
+
                 Console.WriteLine($"{NHD.Name} - {NHD.Health} health, {NHD.Damage:f2} damage");
             }
 
