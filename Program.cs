@@ -36,14 +36,13 @@
                 string patternDamage = @"[-?\d.?]+";
                 MatchCollection codeNumbers = Regex.Matches(text, patternDamage);
 
-
                 foreach (var digit in codeNumbers)
                     damage += double.Parse(digit.ToString());
 
                 string paternMultiaOrDivision = @"[\/|*]+";
-                MatchCollection MultiAndDivision = Regex.Matches(text, paternMultiaOrDivision);
+                MatchCollection multiAndDivision = Regex.Matches(text, paternMultiaOrDivision);
 
-                foreach (var item1 in MultiAndDivision)
+                foreach (var item1 in multiAndDivision)
                 {
                     foreach (char item2 in item1.ToString())
                     {
@@ -72,7 +71,6 @@
             foreach (var NHD in nameHealthDamages
                 .OrderBy(x => x.Name))
             {
-
                 Console.WriteLine($"{NHD.Name} - {NHD.Health} health, {NHD.Damage:f2} damage");
             }
 
